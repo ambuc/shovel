@@ -29,8 +29,6 @@ def calcPayments(loans, payment):
         p = min( loans[i]['prin'] + getInterest( loans[i]['prin'], 
                                                  loans[i]['rate'] ), 
                   weights[i]*payment)
-	if rounding:
-            p = 12*int(p/12.0)
 	payments.append(p)
     return payments
 
@@ -95,7 +93,7 @@ def schedule(loans):
 
         if period == "Yearly":
             t.add_row(["Monthly Payment"]
-                    + ["-{0}".format(r/12.0) for r in recentPayments]
+                    + ["-{0}".format(format(r/12.0,".2f")) for r in recentPayments]
                     + [format(sum([r/12.0 for r in recentPayments]),".2f")])
 
         t.add_row([periodPaymentTitle]
@@ -116,8 +114,7 @@ def schedule(loans):
 
 y = yaml.load(open('config.yaml'))
 
-global rounding, period, growth, startingYear, startingMonth, startingPayment
-rounding =  y['rounding']
+global period, growth, startingYear, startingMonth, startingPayment
 period = y['period'] or "Yearly"
 growth = float(y['growth'])/100.0 or 0
 startingYear = y['startingYear']

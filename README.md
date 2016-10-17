@@ -11,18 +11,18 @@ $ python shovel.py
 |                 |         |         |         |        |         |
 |  2017 Principal | 1000.00 |  500.00 |  100.00 | 100.00 | 1700.00 |
 |        Interest |  +50.00 |  +75.00 |  +40.00 |  +5.00 |  170.00 |
-| Monthly Payment |  -24.00 |  -36.00 |  -11.00 |  -2.00 |   73.00 |
-|  Annual Payment | -294.00 | -441.00 | -140.00 | -29.00 |  904.00 |
+| Monthly Payment |  -24.51 |  -36.76 |  -11.67 |  -2.45 |   75.39 |
+|  Annual Payment | -294.12 | -441.18 | -140.00 | -29.41 |  904.71 |
 |                 |         |         |         |        |         |
-|  2018 Principal |  756.00 |  134.00 |    0.00 |  76.00 |  966.00 |
-|        Interest |  +37.80 |  +20.10 |   +0.00 |  +3.80 |   61.70 |
-| Monthly Payment |  -51.00 |  -12.00 |   -0.00 |  -5.00 |   68.00 |
-|  Annual Payment | -612.00 | -154.00 |   -0.00 | -61.00 |  827.00 |
+|  2018 Principal |  755.88 |  133.82 |    0.00 |  75.59 |  965.29 |
+|        Interest |  +37.79 |  +20.07 |   +0.00 |  +3.78 |   61.65 |
+| Monthly Payment |  -51.09 |  -12.82 |   -0.00 |  -5.11 |   69.02 |
+|  Annual Payment | -613.07 | -153.90 |   -0.00 | -61.31 |  828.28 |
 |                 |         |         |         |        |         |
-|  2019 Principal |  181.80 |    0.00 |    0.00 |  18.80 |  200.60 |
-|        Interest |   +9.09 |   +0.00 |   +0.00 |  +0.94 |   10.03 |
-| Monthly Payment |  -15.00 |   -0.00 |   -0.00 |  -1.00 |   16.00 |
-|  Annual Payment | -190.00 |   -0.00 |   -0.00 | -19.00 |  209.00 |
+|  2019 Principal |  180.60 |    0.00 |    0.00 |  18.06 |  198.66 |
+|        Interest |   +9.03 |   +0.00 |   +0.00 |  +0.90 |    9.93 |
+| Monthly Payment |  -15.80 |   -0.00 |   -0.00 |  -1.58 |   17.38 |
+|  Annual Payment | -189.63 |   -0.00 |   -0.00 | -18.96 |  208.60 |
 +-----------------+---------+---------+---------+--------+---------+
 ```
 
@@ -37,7 +37,6 @@ period: Yearly          #recalculation frequency. "Yearly" or "Monthly".
 
 startingPayment: 1000   #how much to begin paying down initially per period
 growth: 0               #by what percent to increase the payment each period.
-rounding: True          #whether or not to round loan payments to the nearest dollar
 
 startingYear: 2017      #the year repayment started. 
 startingMonth: 1        #the month repayment started.
@@ -59,7 +58,6 @@ loans:
 
 ### Notes:
  - The engine expects a payment you can afford per-month (`startingPayment`), and distributes it across the loans, weighted by the potential interest from each loan.
- - There is an option (`rounding`) to round each monthly payment to the nearest dollar, for easier check-writing. True by default.
  - There is an option (`growth`) to inflate each month's or year's payment by a constant rate, to track with expected salary growth over the next `n` years. Zero by default.
 
 ### Bugs:
