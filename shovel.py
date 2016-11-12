@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import yaml
 from prettytable import PrettyTable
 import prettytable
